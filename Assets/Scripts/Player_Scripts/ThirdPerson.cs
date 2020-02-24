@@ -64,7 +64,7 @@ public class ThirdPerson : MonoBehaviour
             {
                 puedeCorrer = true;
                 moveSpeed = 10f;
-                energia -= .8f + Time.deltaTime;
+                energia -= .4f + Time.deltaTime;
                 if (energia <= 0)
                     energia = 0f;
                 P_Singleton.instance.setStamina(energia);
