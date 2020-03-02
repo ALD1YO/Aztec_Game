@@ -82,6 +82,10 @@ public class ThirdPerson : MonoBehaviour
                 energia = 200f;
             P_Singleton.instance.setStamina(energia);
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            moveSpeed = moveSpeed / 2;
+        }
         if (energia >= 20f)
         {
             puedeCorrer = true;
