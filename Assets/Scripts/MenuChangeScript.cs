@@ -8,6 +8,8 @@ public class MenuChangeScript : MonoBehaviour
 {
     public Text text;
     public Slider slider;
+    public GameObject PanelOptions;
+    public GameObject PanelMenu;
 
     public GameObject target;
 
@@ -32,5 +34,22 @@ public class MenuChangeScript : MonoBehaviour
             slider.value = progress;
             yield return null;
         }
+    }
+
+    public void ActivePanelOpcion()
+    {
+        PanelMenu.gameObject.SetActive(false);
+        PanelOptions.gameObject.SetActive(true);
+    }
+
+    public void ActivePanelMenu()
+    {
+        PanelMenu.gameObject.SetActive(true);
+        PanelOptions.gameObject.SetActive(false);
+    }
+
+    public void Salir()
+    {
+        Application.Quit();
     }
 }
