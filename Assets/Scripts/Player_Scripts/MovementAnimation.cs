@@ -12,6 +12,7 @@ public class MovementAnimation : MonoBehaviour
     bool fireMagicAttack;
     bool earthMagicAttack;
     bool pausa;
+    bool Combat;
 
     int spellLightValue;
 
@@ -61,7 +62,7 @@ public class MovementAnimation : MonoBehaviour
 
         spellLightValue = P_Singleton.instance.currentSpellValue;
     }
-
+    
     void animMoves()
     {
         if (Input.GetKey(KeyCode.W))
