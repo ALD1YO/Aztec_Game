@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Real_circle_movement : MonoBehaviour
 {
-
 
     public float h_speed= 50;
     public float v_speed = 50;
@@ -48,6 +48,7 @@ public class Real_circle_movement : MonoBehaviour
         {
             Debug.Log("Centro");
             Destroy(gameObject);
+
         }
 
 

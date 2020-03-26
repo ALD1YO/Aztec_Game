@@ -479,7 +479,7 @@ MonoBehaviour:
   Arriba: {x: 0, y: 0, z: 0}
   Abajo: {x: 0, y: 0, z: 0}
   Izquierda: {x: 0, y: 0, z: 0}
-  Lugar_spawn: 0
+  Color_Del_Centro: 0
 --- !u!1 &728032246
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +539,7 @@ MonoBehaviour:
   Arriba: {x: 0, y: 0, z: 0}
   Abajo: {x: 0, y: 0, z: 0}
   Izquierda: {x: 0, y: 0, z: 0}
-  Lugar_spawn: 0
+  Color_Del_Centro: 0
 --- !u!61 &728032249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -843,7 +843,7 @@ MonoBehaviour:
   Arriba: {x: 0, y: 0, z: 0}
   Abajo: {x: 0, y: 0, z: 0}
   Izquierda: {x: 0, y: 0, z: 0}
-  Lugar_spawn: 0
+  Color_Del_Centro: 0
 --- !u!1 &1527981533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1257,7 @@ GameObject:
   - component: {fileID: 2139944017}
   - component: {fileID: 2139944018}
   - component: {fileID: 2139944019}
+  - component: {fileID: 2139944020}
   m_Layer: 5
   m_Name: Centro_maton
   m_TagString: Untagged
@@ -1397,4 +1398,21 @@ MonoBehaviour:
   Arriba: {x: 0, y: 0, z: 0}
   Abajo: {x: 0, y: 0, z: 0}
   Izquierda: {x: 0, y: 0, z: 0}
-  Lugar_spawn: 0
+  Color_Del_Centro: 0
+--- !u!114 &2139944020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139944013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e2abab880ee084990c2c1113e84c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color_Rojo: {fileID: 21300000, guid: 8e5d61e00949b184ea1ed6251efb83a5, type: 3}
+  Color_Azul: {fileID: 21300000, guid: f4d37a592ba21f94294e5acafc96a839, type: 3}
+  Color_Amarillo: {fileID: 21300000, guid: bf5cb7f1613dd824ba39393ca1bda44a, type: 3}
+  Color_Verde: {fileID: 21300000, guid: f61ae84223154e34a84ef547bc73c8da, type: 3}
+  Color_Del_Centro: 0

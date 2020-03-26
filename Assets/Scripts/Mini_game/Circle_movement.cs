@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Circle_movement : MonoBehaviour
 {
@@ -24,8 +25,6 @@ public class Circle_movement : MonoBehaviour
     public Vector3 Izquierda;
 
 
-    public Place_spawn Lugar_spawn;
-    public enum Place_spawn { Left, Right, Top, Bottom }
 
     private void Awake()
     {
@@ -38,27 +37,10 @@ public class Circle_movement : MonoBehaviour
 
     }
 
-    void Start()
+    
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        
-
-        StartCoroutine(Tiempos());
-
-        switch (Lugar_spawn)
-        {
-            case Place_spawn.Left:
-
-                break;
-
-            case Place_spawn.Right:
-                break;
-
-            case Place_spawn.Top:
-                break;
-
-            case Place_spawn.Bottom:
-                break;
-        }
 
     }
 
