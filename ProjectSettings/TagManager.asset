@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shootable
+  - Canvas
+  - Top_place
+  - Right_place
+  - Left_place
+  - Bottom_place
   layers:
   - Default
   - TransparentFX
