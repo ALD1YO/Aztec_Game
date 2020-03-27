@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Combat_Trigger : MonoBehaviour
 {
+    public GameObject hitbox;
+
     bool combatIdle;
     bool combatPunch1;
     bool combatPunch2;
@@ -18,6 +20,7 @@ public class Combat_Trigger : MonoBehaviour
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        hitbox.SetActive(false);
     }
     private void Update()
     {
@@ -43,6 +46,7 @@ public class Combat_Trigger : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            hitbox.SetActive(true);
             combatPunching = true;
             if (combatPunch1)
             {
@@ -65,6 +69,7 @@ public class Combat_Trigger : MonoBehaviour
                 combatPunch1 = false;
                 combatPunch2 = false;
                 combatPunch3 = false;
+                hitbox.SetActive(false);
                 punchTime = 0f;
             }
         }
