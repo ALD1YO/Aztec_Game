@@ -15,7 +15,7 @@ public class ThirdPerson : MonoBehaviour
     public float moveSpeed = 4f;
     public float gravityForce = 9.8f;
 
-    private float zoom;
+    public float zoom;
     public float zoomSpeed = 2;
 
     public float zoomMin = -0.4f;
@@ -32,7 +32,6 @@ public class ThirdPerson : MonoBehaviour
     void Start()
     {
         puedeCorrer = true;
-        zoom = -1;
 
     }
 
@@ -78,8 +77,8 @@ public class ThirdPerson : MonoBehaviour
         {
             moveSpeed = 3f;
             energia += .2f + Time.deltaTime;
-            if (energia >= 200f)
-                energia = 200f;
+            if (energia >= 100f)
+                energia = 100f;
             P_Singleton.instance.setStamina(energia);
         }
         if (Input.GetKey(KeyCode.S))
