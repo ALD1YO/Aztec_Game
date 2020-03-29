@@ -10,10 +10,15 @@ public class Mini_game_Inputs : MonoBehaviour
     public Sprite Color_Amarillo;
     public Sprite Color_Verde;
 
+    //public Sprite Current_Sprite;
 
     [SerializeField]
-    private Place_spawn Color_Del_Centro;
-    private enum Place_spawn { Red, Blue, Green, Yellow }
+    
+    public enum Place_spawn { Red, Blue, Green, Yellow }
+
+    public Place_spawn Color_Del_Centro;
+
+    //Real_circle_movement real_Circle_Movement = new Real_circle_movement();
 
     void Start()
     {
@@ -59,7 +64,7 @@ public class Mini_game_Inputs : MonoBehaviour
             Color_Del_Centro = Place_spawn.Yellow;
 
         }
-
+        Debug.Log("El Color del centro es: " + Color_Del_Centro);
     }
 
     

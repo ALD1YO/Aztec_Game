@@ -19,16 +19,16 @@ public class Circle_movement : MonoBehaviour
     public float Time_To_Start_Game;
 
 
-    public Vector3 Derecha;
-    public Vector3 Arriba;
-    public Vector3 Abajo;
-    public Vector3 Izquierda;
+    private Vector3 Derecha;
+    private Vector3 Arriba;
+    private Vector3 Abajo;
+    private Vector3 Izquierda;
 
 
 
     private void Awake()
     {
-        //Se asignan los lugares de spawn a las posiciones de los objetos vacios por medio de Vector3
+        //Se asignan los lugares de spawn, donde aparecera, a las posiciones de los objetos vacios por medio de Vector3
         Arriba = Arriba_spawn.transform.position;
         Derecha = Derecha_spawn.transform.position;
         Izquierda = Izquierda_spawn.transform.position;
@@ -37,12 +37,8 @@ public class Circle_movement : MonoBehaviour
 
     }
 
-    
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
+    void Start() => StartCoroutine(Tiempos()); 
+ 
 
 
     public IEnumerator Tiempos()
