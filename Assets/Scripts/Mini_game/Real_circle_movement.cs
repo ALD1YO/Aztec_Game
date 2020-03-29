@@ -16,6 +16,7 @@ public class Real_circle_movement : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D collision)
     {
+        //Basicamente, dependiendo con el spawner que choque, será la dirección que tenga.
         //Si hay una colición con un gameobject que tenga este nombre haz esto:
         if (collision.gameObject.name == "Right_place")
         {
@@ -39,6 +40,7 @@ public class Real_circle_movement : MonoBehaviour
             h_speed = 0;          
         }
 
+        //Colisión con el Centro
         if (collision.gameObject.name == "Centro_maton")
         {
             if (collision.gameObject.GetComponent<Image>().sprite != this.GetComponent<Image>().sprite)
