@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PajaritoVolar : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+
+    public GameObject Pajarito;
+
+    void Start()
     {
-        if(collision.gameObject.name== "sinsonte_idle")
+        Debug.Log("inicio");
+    }
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Player")
         {
             Debug.Log("vas bien papu");
+            Pajarito.transform.position = new Vector3(2,2,1);
         }
     }
 }
