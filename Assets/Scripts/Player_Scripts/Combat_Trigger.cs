@@ -44,9 +44,10 @@ public class Combat_Trigger : MonoBehaviour
     }
     void animAttack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && combatIdle) 
         {
             hitbox.SetActive(true);
+            StartCoroutine(hitBoxOff());
             combatPunching = true;
             if (combatPunch1)
             {
@@ -72,6 +73,20 @@ public class Combat_Trigger : MonoBehaviour
                 hitbox.SetActive(false);
                 punchTime = 0f;
             }
+        }
+    }
+
+    IEnumerator hitBoxOff()
+    {
+        yield return new WaitForSeconds(0.05f);
+        hitbox.SetActive(false);
+        if (combatPunch3)
+        {
+            yield return new WaitForSeconds(0.5f);
+            combatPunching = false;
+            combatPunch1 = false;
+            combatPunch2 = false;
+            combatPunch3 = false;
         }
     }
     private void OnTriggerEnter(Collider other)
