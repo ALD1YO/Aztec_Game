@@ -5,19 +5,46 @@ using UnityEngine;
 
 public class PajaritoVolar : MonoBehaviour
 {
+    bool Vuela;
+    float Posx;
+    float Posy;
 
-    public GameObject Pajarito;
-
-    void Start()
+    private void Start()
     {
-        Debug.Log("inicio");
+        Vuela = false;   
     }
+
+    private void Update()
+    {
+        if(Vuela==true)
+        {
+            this.transform.position = new Vector3(Posx, Posy, this.transform.position.z);
+        }
+    }
+
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("vas bien papu");
-            Pajarito.transform.position = new Vector3(2,2,1);
+            Posx = this.transform.position.x;
+            Posy = this.transform.position.y;
+            Vuela = true;
+            Volar();
+        }
+    }
+
+    void Volar()
+    {
+        Debug.Log(Posx + ","+Posy);
+        for(float i=0; i<=1000; i+=.01f)
+        {
+            Posx += .0001f;
+            Posy += .0001f;
+            if(i>=1000)
+            {
+                Vuela = false;
+                Debug.Log(Vuela);
+            }
         }
     }
 }
