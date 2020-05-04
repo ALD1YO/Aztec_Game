@@ -41,16 +41,76 @@ public class Spawner : MonoBehaviour
     public IEnumerator Tiempos()
     {
         yield return new WaitForSeconds(Time_To_Start_Game);
+        /*
+         //Si tienes duda de como funciona esta wea, descomenta esto para ver el ejemplo :v
         Instantiate(Bola_Verde, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
         Instantiate(Bola_Azul, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
         Instantiate(Bola_Amarilla, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
         Instantiate(Bola_Roja, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        */
 
         yield return new WaitForSeconds(2.0f);
         Instantiate(Bola_Amarilla, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(1.0f);
-        Instantiate(Bola_Amarilla, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.8f);
+        Instantiate(Bola_Azul, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(2.0f);
+        Instantiate(Bola_Verde, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(1.2f);
+        Instantiate(Bola_Roja, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.6f);
+        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        //Need to stop worrying
+
+        yield return new WaitForSeconds(2.3f);
+        Instantiate(Bola_Azul, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(0.8f);
+        Instantiate(Bola_Roja, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        
+
+        yield return new WaitForSeconds(1.8f);
+        Instantiate(Bola_Amarilla, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        yield return new WaitForSeconds(.1f);
+        Instantiate(Bola_Verde, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
     }
     //Esta es la linea que hace se espere tantos segundos antes de spawnear algo
     //yield return new WaitForSeconds("Pon el tiempo aqui Yeyo");
