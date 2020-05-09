@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Real_circle_movement : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class Real_circle_movement : MonoBehaviour
             if (collision.gameObject.GetComponent<Image>().sprite != this.GetComponent<Image>().sprite)
             {
                 Debug.Log("Diferente Sprite");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             Destroy(gameObject);
         }

@@ -10,9 +10,15 @@ public class Mini_game_Inputs : MonoBehaviour
     public Sprite Color_Azul;
     public Sprite Color_Amarillo;
     public Sprite Color_Verde;
+    //public AudioSource Turntable_turnabout;
 
     //private enum Place_spawn { Red, Blue, Green, Yellow }
     //private Place_spawn Color_Del_Centro;
+    private void Awake()
+    {
+        //Turntable_turnabout.Play();
+    }
+    void Start() => StartCoroutine(Escala());
     void Update()
     {
         //Con los inputs cambia el sprite
@@ -34,9 +40,32 @@ public class Mini_game_Inputs : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             this.GetComponent<Image>().sprite = Color_Amarillo;          
-        }        
+        }
     }
 
-    
+
+    void Small_to_big()
+    {
+        transform.localScale = new Vector3(1.1f,1.1f,1);
+    }
+
+    void Big_to_small()
+    {
+        transform.localScale = new Vector3(0.9f, 0.9f, 1);
+    }
+
+    public IEnumerator Escala()
+    {
+        Small_to_big();
+        yield return new WaitForSeconds(0.3f);
+        Big_to_small();
+        yield return new WaitForSeconds(0.3f);
+        Start();
+
+        Debug.Log("Entrando");
+    }
+
+
+
 
 }
