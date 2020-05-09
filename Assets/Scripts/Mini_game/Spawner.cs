@@ -111,6 +111,8 @@ public class Spawner : MonoBehaviour
 
         yield return new WaitForSeconds(.1f);
         Instantiate(Bola_Verde, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        //Aquí acaba y pon la condición que quieras
     }
     //Esta es la linea que hace se espere tantos segundos antes de spawnear algo
     //yield return new WaitForSeconds("Pon el tiempo aqui Yeyo");
