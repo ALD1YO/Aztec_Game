@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hit
   - Bullet
+  - Bird
   layers:
   - Default
   - TransparentFX
