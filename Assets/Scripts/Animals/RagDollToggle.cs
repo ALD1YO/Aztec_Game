@@ -57,18 +57,28 @@ public class RagDollToggle : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.other.GetComponent<Combat_Trigger>() != null)
+         {
+             RagdollActive(true);
+         }
+
+         if (collision.other.gameObject.tag == "Hit")
+         {
+             //RagdollActive(true);
+         }
+
+         if(collision.other.gameObject.name == "Hitbox")
+         {
+             //RagdollActive(true);
+         }
+
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
             RagdollActive(true);
-        }
-
-        if (collision.other.gameObject.tag == "Hit")
-        {
-            //RagdollActive(true);
-        }
-
-        if(collision.other.gameObject.name == "Hitbox")
-        {
-            //RagdollActive(true);
         }
     }
 }
