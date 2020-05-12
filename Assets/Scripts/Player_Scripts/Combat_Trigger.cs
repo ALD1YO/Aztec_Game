@@ -6,7 +6,7 @@ public class Combat_Trigger : MonoBehaviour
 {
     public GameObject hitbox;
 
-    bool combatIdle;
+    public bool combatIdle;
     bool combatPunch1;
     bool combatPunch2;
     bool combatPunch3;
@@ -14,6 +14,8 @@ public class Combat_Trigger : MonoBehaviour
     bool pausa;
 
     public float punchTime;
+
+    int currentEnemies;
 
     Animator anim;
 
@@ -29,11 +31,13 @@ public class Combat_Trigger : MonoBehaviour
         else
             Debug.Log("Se encontro animator");
 
+        currentEnemies = P_Singleton.instance.currentEnemies;
         pausa = G_Singleton.instance.pausa;
 
         if (pausa == false)
         {
             animAttack();
+            inCombat();
         }
 
         anim.SetBool("Combat Idle", combatIdle);
@@ -46,6 +50,7 @@ public class Combat_Trigger : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && combatIdle) 
         {
+            P_Singleton.instance.setCurrentEnemiesLessOne(1);
             hitbox.SetActive(true);
             StartCoroutine(hitBoxOff());
             combatPunching = true;
@@ -75,7 +80,17 @@ public class Combat_Trigger : MonoBehaviour
             }
         }
     }
-
+    void inCombat()
+    {
+        if(currentEnemies >= 1)
+        {
+            combatIdle = true;
+        }
+        else
+        {
+            combatIdle = false;
+        }
+    }
     IEnumerator hitBoxOff()
     {
         yield return new WaitForSeconds(0.05f);
@@ -93,14 +108,14 @@ public class Combat_Trigger : MonoBehaviour
     {
         if (other.gameObject.tag == "EnemyD")
         {
-            combatIdle = true;
+            P_Singleton.instance.setCurrentEnemiesPlusOne(1);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "EnemyD")
         {
-            combatIdle = false;
+            P_Singleton.instance.setCurrentEnemiesLessOne(1);
         }
     }
 }

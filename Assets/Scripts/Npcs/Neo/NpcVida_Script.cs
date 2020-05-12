@@ -26,8 +26,8 @@ public class NpcVida_Script : MonoBehaviour
     }
     IEnumerator goUp()
     {
-        transform.Translate(Vector3.up * -100);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.9f);
+        P_Singleton.instance.setCurrentEnemiesLessOne(2);
         Destroy(transform.parent.gameObject);
     }
     private void OnTriggerEnter(Collider other)

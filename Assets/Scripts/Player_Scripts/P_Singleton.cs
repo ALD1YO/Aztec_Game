@@ -11,6 +11,7 @@ public class P_Singleton : MonoBehaviour
     public float mana;
 
     public int currentSpellValue;
+    public int currentEnemies;
 
     public bool No_Spell;
     public bool Fire_Spell;
@@ -88,5 +89,13 @@ public class P_Singleton : MonoBehaviour
                 spellLight = new Color32(150,150, 150, 255);
                 break;
         }
+    }
+    public void setCurrentEnemiesPlusOne(int current)
+    {
+        currentEnemies = currentEnemies + current;
+    }
+    public void setCurrentEnemiesLessOne(int current)
+    {
+        currentEnemies = currentEnemies - current;
     }
 }

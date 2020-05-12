@@ -11,6 +11,7 @@ public class P_Atack : MonoBehaviour
     public bool ataca;
     public bool Idle;
     public bool ataca2;
+    public bool attacking;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,11 @@ public class P_Atack : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        attackScript();
+    }
+
+    void attackScript()
     {
         if (atackTimer == 0)
         {
