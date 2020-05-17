@@ -28,8 +28,8 @@ public class PajaritoVolar : MonoBehaviour
     {
         if (Activo)
         {
-            t1 += .4f * Time.deltaTime;
-            t2 += .1f * Time.deltaTime;
+            t1 += .15f * Time.deltaTime;
+            t2 += .09f * Time.deltaTime;
             this.transform.position = new Vector3(Mathf.Lerp(Posx, Posx + 20, t1), Mathf.Lerp(Posy, Posy + 20, t2), this.transform.position.z);
             AnimacionVolar.Play("volar");
         }
