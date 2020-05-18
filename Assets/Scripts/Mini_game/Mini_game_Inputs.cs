@@ -46,20 +46,20 @@ public class Mini_game_Inputs : MonoBehaviour
 
     void Small_to_big()
     {
-        transform.localScale = new Vector3(1.1f,1.1f,1);
+        transform.localScale = new Vector3(1.05f,1.05f,1);
     }
 
     void Big_to_small()
     {
-        transform.localScale = new Vector3(0.9f, 0.9f, 1);
+        transform.localScale = new Vector3(0.95f, 0.95f, 1);
     }
 
     public IEnumerator Escala()
     {
         Small_to_big();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         Big_to_small();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         Start();
 
         Debug.Log("Entrando");
