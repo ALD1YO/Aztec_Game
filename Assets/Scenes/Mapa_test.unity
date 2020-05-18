@@ -19448,6 +19448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbaf8034db40bed47bb1304eaf2c21ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Activo: 0
+  Posx: 0
+  Posz: 0
+  t1: 0
+  t2: 0
 --- !u!65 &1996973621714112761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19459,8 +19464,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.455356, y: 0.9739094, z: 18.446924}
-  m_Center: {x: -5.3038416, y: 0.9900634, z: 0.26987115}
+  m_Size: {x: 9.188876, y: 1.5326288, z: 10.720659}
+  m_Center: {x: -5.4370813, y: 0.7106916, z: 0.5803697}
 --- !u!4 &2002491000480092365
 Transform:
   m_ObjectHideFlags: 0
@@ -21782,7 +21787,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1.37
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
