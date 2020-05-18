@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-    public float Velocidad=10;
+    public float Velocidad = 10;
 
 
     void Update()
@@ -17,7 +15,7 @@ public class MoveForward : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            Velocidad = 0.2f;
+            //Velocidad = 0.2f;
         }
     }
 }

@@ -58,7 +58,7 @@ public class RagDollToggle : MonoBehaviour
     {
         if(collision.other.GetComponent<Combat_Trigger>() != null)
          {
-             RagdollActive(true);
+             //RagdollActive(true);
          }
 
          if (collision.other.gameObject.tag == "Hit")
@@ -76,7 +76,7 @@ public class RagDollToggle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Hit")
         {
             RagdollActive(true);
         }
