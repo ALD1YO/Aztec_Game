@@ -686,8 +686,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.86314, y: 0.25137377, z: 20.60167}
-  m_Center: {x: 0.3596058, y: 0.0894649, z: -0.0075302124}
+  m_Size: {x: 5.426342, y: 0.47525644, z: 5.426407}
+  m_Center: {x: -0.08468628, y: 0.20140624, z: 0.053016663}
 --- !u!114 &7251551492352170541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff0218f1745f50459d2ba238ecfce38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pajaro: {fileID: 0}
+  Pajaro: {fileID: 8097967576469300625}
   Volar: {fileID: 1827226128182048838, guid: b0b55f69c2a7bb040a22435254d53f04, type: 3}
 --- !u!1 &8208748929084689488
 GameObject:

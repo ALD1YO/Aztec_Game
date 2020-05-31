@@ -13,6 +13,13 @@ public class PajaritoVolar : MonoBehaviour
 
     float Posx;
     float Posy;
+    float Posz;
+    float Playerx;
+    float Playerz;
+    float ResMorrPajx;
+    float ResMorrPajz;
+    float AdelanteOAtras;
+    float DerechaOIzquierda;
     float t1;
     float t2;
 
@@ -30,7 +37,7 @@ public class PajaritoVolar : MonoBehaviour
         {
             t1 += .15f * Time.deltaTime;
             t2 += .09f * Time.deltaTime;
-            this.transform.position = new Vector3(Mathf.Lerp(Posx, Posx + 20, t1), Mathf.Lerp(Posy, Posy + 20, t2), this.transform.position.z);
+            this.transform.position = new Vector3(Mathf.Lerp(Posx, Posx + AdelanteOAtras, t1), Mathf.Lerp(Posy, Posy + 80, t2), Mathf.Lerp(Posz,Posz+0,t1));
             AnimacionVolar.Play("volar");
         }
     }
@@ -42,8 +49,40 @@ public class PajaritoVolar : MonoBehaviour
         {
             Posx = this.transform.position.x;
             Posy = this.transform.position.y;
+            Posz = this.transform.position.z;
             Activo = true;
-            Debug.Log("entramos");
+            Playerx = collision.transform.position.x;
+            Playerz = collision.transform.position.z;
+            ResMorrPajx = Playerx - Posx;
+            ResMorrPajz = Playerz - Posz;
+           
+            if(ResMorrPajx<0)
+            {
+                AdelanteOAtras = Random.Range(1,100);
+                if(ResMorrPajz<0)
+                {
+                    DerechaOIzquierda = Random.Range(1,100);
+                }
+                if(ResMorrPajz>0)
+                {
+                    DerechaOIzquierda = Random.Range(-1,-100);
+                }
+            }
+
+            if (ResMorrPajx > 0)
+            {
+                AdelanteOAtras = Random.Range(-1,-100);
+                if (ResMorrPajz < 0)
+                {
+                    DerechaOIzquierda = Random.Range(-1, -100);
+                }
+                if (ResMorrPajz > 0)
+                {
+                    DerechaOIzquierda = Random.Range(1, 100);
+                }
+            }
+            
+           
         }
     }
 }
