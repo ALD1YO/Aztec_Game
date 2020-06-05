@@ -47,7 +47,7 @@ public class Real_circle_movement : MonoBehaviour
             if (collision.gameObject.GetComponent<Image>().sprite != this.GetComponent<Image>().sprite)
             {
                 Debug.Log("Diferente Sprite");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                G_Singleton.instance.setOrbe(false);
             }
             Destroy(gameObject);
         }
