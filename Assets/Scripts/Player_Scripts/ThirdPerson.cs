@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThirdPerson : MonoBehaviour
 {
     public Transform playerCam, character, centerPoint;
-    public MovementAnimation moveAnim;
+    public P_Anim moveAnim;
 
     private float mouseX, mouseY;
     public float mouseSensitivity = 10f;

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Mini_game_Inputs : MonoBehaviour
 {
+    bool pausa;
+    bool orbe;
+
     //Se traen los sprites para cambiar de color
     public Sprite Color_Rojo;
     public Sprite Color_Azul;
@@ -18,8 +21,20 @@ public class Mini_game_Inputs : MonoBehaviour
     {
         //Turntable_turnabout.Play();
     }
-    void Start() => StartCoroutine(Escala());
-    void Update()
+    //void Start() => StartCoroutine(Escala());
+    private void Update()
+    {
+        if (pausa == false)
+        {
+            if (orbe)
+            {
+                inPuts();
+            }
+        }
+        pausa = G_Singleton.instance.pausa;
+        orbe = G_Singleton.instance.orbe;
+    }
+    void inPuts()
     {
         //Con los inputs cambia el sprite
         if (Input.GetKeyDown(KeyCode.E))
@@ -60,7 +75,7 @@ public class Mini_game_Inputs : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         Big_to_small();
         yield return new WaitForSeconds(0.3f);
-        Start();
+        //Start();
 
         Debug.Log("Entrando");
     }

@@ -9,6 +9,7 @@ public class G_Singleton : MonoBehaviour
 
     public bool pausa;
     public int Enemigos;
+    public bool orbe;
 
     private void Awake()
     {
@@ -32,5 +33,9 @@ public class G_Singleton : MonoBehaviour
     public void setEnemigos(int _enemigos)
     {
         Enemigos += _enemigos;
+    }
+    public void setOrbe(bool _orbe)
+    {
+        orbe = _orbe;
     }
 }

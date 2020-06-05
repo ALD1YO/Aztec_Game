@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    bool pausa;
+    bool orbe;
+    bool isPlaying;
+
     //Son los prefabs del minijuego
     public GameObject Bola_Azul;
     public GameObject Bola_Roja;
@@ -37,9 +41,32 @@ public class Spawner : MonoBehaviour
     }
 
     //Simplemente se inicia la corutina del juego
-    void Start() => StartCoroutine(Tiempos()); 
+    //void Start() => StartCoroutine(Tiempos()); 
+    private void Start()
+    {
+        isPlaying = true;
+    }
+    private void Update()
+    {
+        if (pausa == false)
+        {
+            if (orbe)
+            {
+                if(isPlaying)
+                StartCoroutine(Tiempos());
+            }
+            else
+            {
+                StopCoroutine(Tiempos());
+            }
+        }
+
+        pausa = G_Singleton.instance.pausa;
+        orbe = G_Singleton.instance.orbe;
+    }
     public IEnumerator Tiempos()
     {
+        isPlaying = false;
         yield return new WaitForSeconds(Time_To_Start_Game);
         /*
          //Si tienes duda de como funciona esta wea, descomenta esto para ver el ejemplo :v
@@ -48,69 +75,72 @@ public class Spawner : MonoBehaviour
         Instantiate(Bola_Amarilla, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
         Instantiate(Bola_Roja, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
         */
+        if (orbe)
+        {
+            yield return new WaitForSeconds(2.0f);
+            Instantiate(Bola_Amarilla, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.8f);
+            Instantiate(Bola_Azul, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(2.0f);
+            Instantiate(Bola_Verde, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(1.2f);
+            Instantiate(Bola_Roja, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(2.0f);
-        Instantiate(Bola_Amarilla, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.8f);
-        Instantiate(Bola_Azul, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(2.0f);
-        Instantiate(Bola_Verde, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(1.2f);
-        Instantiate(Bola_Roja, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Verde, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(.6f);
+            Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(.6f);
-        Instantiate(Bola_Amarilla, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            //Need to stop worrying
 
-        //Need to stop worrying
+            yield return new WaitForSeconds(2.3f);
+            Instantiate(Bola_Azul, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(2.3f);
-        Instantiate(Bola_Azul, Derecha, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+            yield return new WaitForSeconds(0.8f);
+            Instantiate(Bola_Roja, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
-        yield return new WaitForSeconds(0.8f);
-        Instantiate(Bola_Roja, Arriba, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
+
+            yield return new WaitForSeconds(1.8f);
+            Instantiate(Bola_Amarilla, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+
+            yield return new WaitForSeconds(.1f);
+            Instantiate(Bola_Verde, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        }
         
-
-        yield return new WaitForSeconds(1.8f);
-        Instantiate(Bola_Amarilla, Abajo, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
-
-        yield return new WaitForSeconds(.1f);
-        Instantiate(Bola_Verde, Izquierda, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
 
         //Aquí acaba y pon la condición que quieras
     }
