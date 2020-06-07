@@ -28,7 +28,16 @@ public class ThirdPerson : MonoBehaviour
     bool puedeCaminar;
     bool pausa;
 
+    //private ShapeShift shapeShift;
+    public GameObject ShapeShift_script;
     // Use this for initialization
+    private void Awake()
+    {
+        //shapeShift = new ShapeShift();
+
+        
+        
+    }
     void Start()
     {
         puedeCorrer = true;
@@ -48,6 +57,8 @@ public class ThirdPerson : MonoBehaviour
                 Movimiento();
         }
         puedeCaminar = moveAnim.puedeCaminar;
+
+       
     }
 
     void Movimiento()
@@ -108,7 +119,8 @@ public class ThirdPerson : MonoBehaviour
     }
     void centraCamara()
     {
-        playerCam.transform.localPosition = new Vector3(0, 0, zoom);
+        ShapeShift shapeShift = ShapeShift_script.GetComponent<ShapeShift>();
+        playerCam.transform.localPosition = new Vector3(0, shapeShift.posicion_camara, zoom);
         mouseY = Mathf.Clamp(mouseY, -20f, 30f);
         playerCam.LookAt(centerPoint);
         centerPoint.localRotation = Quaternion.Euler(mouseY, mouseX, 0);
