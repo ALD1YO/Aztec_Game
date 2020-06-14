@@ -13,6 +13,7 @@ public class Activate_player_movement : MonoBehaviour
     public GameObject Camara_Principal;
     public GameObject Camara_Menu;
     public GameObject Player_Canvas;
+    public GameObject Main_Menu_Canvas;
 
     // Update is called once per frame
     private void Start()
@@ -37,7 +38,8 @@ public class Activate_player_movement : MonoBehaviour
 
      IEnumerator Activar_Movimiento()
     {
-        //Codigo de empezar animacion de cámara
+        //Codigo de empezar animacion de cámara y activar todo el ingame
+        Main_Menu_Canvas.SetActive(false);
 
         yield return new WaitForSeconds(4.0f);
         print("Se inicia el juego");
@@ -45,7 +47,6 @@ public class Activate_player_movement : MonoBehaviour
         _p_anim.enabled = true;
         _ThirdPerson.enabled = true;
         Player_Canvas.SetActive(true);
-        //Camara_Principal.SetActive(true);
-        //Camara_Menu.SetActive(false);
+        
     }
 }
