@@ -5,7 +5,11 @@ using UnityEngine;
 public class P_Anim : MonoBehaviour
 {
     bool walking;
+    bool walking_R;
+    bool walking_L;
+    bool backwards;
     bool sprint;
+    bool sprint_B;
     bool attack;
     bool dead;
     bool take_dmg;
@@ -33,10 +37,11 @@ public class P_Anim : MonoBehaviour
         estaAtacando = false;
         puedeAtacar = true;
         walking = false;
-        //backwards = false;
-        //walking_L = false;
-        //walking_R = false;
+        backwards = false;
+        walking_L = false;
+        walking_R = false;
         sprint = false;
+        sprint_B = false;
     }
 
     // Update is called once per frame
@@ -51,12 +56,13 @@ public class P_Anim : MonoBehaviour
         }
 
         anim.SetBool("Walking", walking);
-        //anim.SetBool("Backwards", backwards);
-        //anim.SetBool("Walking_L", walking_L);
-        //anim.SetBool("Walking_R", walking_R);
+        anim.SetBool("Walk_Backwards", backwards);
+        anim.SetBool("Walk_Left", walking_L);
+        anim.SetBool("Walk_Right", walking_R);
         //anim.SetBool("Fire_Magic_Attack", fireMagicAttack);
         //anim.SetBool("Earth_Magic_Attack", earthMagicAttack);
         anim.SetBool("Sprint", sprint);
+        anim.SetBool("Run_Backwards", sprint_B);
 
         spellLightValue = P_Singleton.instance.currentSpellValue;
     }
@@ -67,45 +73,45 @@ public class P_Anim : MonoBehaviour
         {
             //AudioManager.instance.Play("Pisadas");
             walking = true;
-           // backwards = false;
-           //walking_L = false;
-           // walking_R = false;
+            backwards = false;
+            walking_L = false;
+            walking_R = false;
             puedeAtacar = false;
         }
-        /*else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             //AudioManager.instance.Play("Pisadas");
             walking = false;
-           // backwards = true;
-           // walking_L = false;
-           // walking_R = false;
+            backwards = true;
+            walking_L = false;
+            walking_R = false;
             puedeAtacar = false;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             //AudioManager.instance.Play("Pisadas");
             walking = false;
-           // backwards = false;
-           // walking_L = true;
-           // walking_R = false;
+            backwards = false;
+            walking_L = true;
+            walking_R = false;
             puedeAtacar = false;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             //AudioManager.instance.Play("Pisadas");
             walking = false;
-           // backwards = false;
-           // walking_L = false;
-           // walking_R = true;
+            backwards = false;
+            walking_L = false;
+            walking_R = true;
             puedeAtacar = false;
-        }*/
+        }
         else
         {
-            //AudioManager.instance.Stop("Pisadas");
-           // walking_R = false;
-          //  walking_L = false;
+            AudioManager.instance.Stop("Pisadas");
+            walking_R = false;
+            walking_L = false;
             walking = false;
-           // backwards = false;
+            backwards = false;
             puedeAtacar = true;
         }
 
@@ -113,9 +119,15 @@ public class P_Anim : MonoBehaviour
         {
             if (walking)
                 sprint = true;
+            if (backwards)
+                sprint_B = true;
         }
         else
+        {
             sprint = false;
+            sprint_B = false;
+        }
+            
     }
     void animAttacks()
     {

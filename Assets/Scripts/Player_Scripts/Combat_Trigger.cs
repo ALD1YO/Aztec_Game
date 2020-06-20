@@ -40,11 +40,9 @@ public class Combat_Trigger : MonoBehaviour
             inCombat();
         }
 
-        anim.SetBool("Combat Idle", combatIdle);
-        anim.SetBool("Punching", combatPunching);
-        anim.SetBool("Punch1", combatPunch1);
-        anim.SetBool("Punch2", combatPunch2);
-        anim.SetBool("Punch3", combatPunch3);
+        anim.SetBool("Combat", combatIdle);
+        anim.SetBool("Attack", combatPunching);
+
     }
     void animAttack()
     {
@@ -54,17 +52,6 @@ public class Combat_Trigger : MonoBehaviour
             hitbox.SetActive(true);
             StartCoroutine(hitBoxOff());
             combatPunching = true;
-            if (combatPunch1)
-            {
-                if (combatPunch2)
-                {
-                    combatPunch3 = true;
-                    punchTime = 0f;
-                }
-                combatPunch2 = true;
-                punchTime = 0f;
-            }
-            combatPunch1 = true;
         }
         if (combatPunching)
         {
@@ -95,14 +82,6 @@ public class Combat_Trigger : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         hitbox.SetActive(false);
-        if (combatPunch3)
-        {
-            yield return new WaitForSeconds(0.5f);
-            combatPunching = false;
-            combatPunch1 = false;
-            combatPunch2 = false;
-            combatPunch3 = false;
-        }
     }
     private void OnTriggerEnter(Collider other)
     {
