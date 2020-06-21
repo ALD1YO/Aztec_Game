@@ -31,7 +31,7 @@ public class ThirdPerson : MonoBehaviour
     bool pausa;
 
     //private ShapeShift shapeShift;
-    public GameObject ShapeShift_script;
+    //public GameObject ShapeShift_script;
     // Use this for initialization
     private void Awake()
     {
