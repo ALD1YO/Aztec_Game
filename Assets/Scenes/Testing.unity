@@ -551,22 +551,22 @@ PrefabInstance:
       propertyPath: m_MinValue
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1550570453296202591, guid: b217ea8e126800745a65491e5d2a73bb,
+    - target: {fileID: 1550570453762991232, guid: b217ea8e126800745a65491e5d2a73bb,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1550570453296202591, guid: b217ea8e126800745a65491e5d2a73bb,
+    - target: {fileID: 1550570453762991232, guid: b217ea8e126800745a65491e5d2a73bb,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1550570453762991232, guid: b217ea8e126800745a65491e5d2a73bb,
+    - target: {fileID: 1550570453296202591, guid: b217ea8e126800745a65491e5d2a73bb,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1550570453762991232, guid: b217ea8e126800745a65491e5d2a73bb,
+    - target: {fileID: 1550570453296202591, guid: b217ea8e126800745a65491e5d2a73bb,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 897476239}
   m_Layer: 0
   m_Name: Body_enemigo
-  m_TagString: Untagged
+  m_TagString: EnemyD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2102,21 +2102,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1144712852}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: e288a5d9be444f04abb862a13052678f,
-        type: 3}
-      propertyPath: m_Name
-      value: idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2721546324538567844, guid: e288a5d9be444f04abb862a13052678f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5775550052059115417, guid: e288a5d9be444f04abb862a13052678f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e288a5d9be444f04abb862a13052678f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2170,6 +2155,21 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e288a5d9be444f04abb862a13052678f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e288a5d9be444f04abb862a13052678f,
+        type: 3}
+      propertyPath: m_Name
+      value: idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721546324538567844, guid: e288a5d9be444f04abb862a13052678f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775550052059115417, guid: e288a5d9be444f04abb862a13052678f,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: e288a5d9be444f04abb862a13052678f,
@@ -2935,6 +2935,11 @@ PrefabInstance:
     - target: {fileID: 8298863880475011245, guid: e0dbe79ceec12ad44aa4c064e0153e39,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399351679179435963, guid: e0dbe79ceec12ad44aa4c064e0153e39,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -23,6 +23,7 @@ public class Combat_Trigger : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         hitbox.SetActive(false);
+        combatPunching = false;
     }
     private void Update()
     {
@@ -46,9 +47,13 @@ public class Combat_Trigger : MonoBehaviour
     }
     void animAttack()
     {
-        if (Input.GetMouseButtonDown(0) && combatIdle) 
+        if (Input.GetMouseButtonDown(0) && combatIdle && combatPunching == false) 
         {
-            P_Singleton.instance.setCurrentEnemiesLessOne(1);
+            if(currentEnemies>=6)
+                P_Singleton.instance.setCurrentEnemiesLessOne(2 );
+            else
+                P_Singleton.instance.setCurrentEnemiesLessOne(1);
+
             hitbox.SetActive(true);
             StartCoroutine(hitBoxOff());
             combatPunching = true;
@@ -59,10 +64,6 @@ public class Combat_Trigger : MonoBehaviour
             if (punchTime >= 1.6f)
             {
                 combatPunching = false;
-                combatPunch1 = false;
-                combatPunch2 = false;
-                combatPunch3 = false;
-                hitbox.SetActive(false);
                 punchTime = 0f;
             }
         }
