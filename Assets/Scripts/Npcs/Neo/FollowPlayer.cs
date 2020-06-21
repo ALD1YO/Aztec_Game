@@ -41,7 +41,7 @@ public class FollowPlayer : MonoBehaviour
             transform.parent.LookAt(targetPosition);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -57,5 +57,5 @@ public class FollowPlayer : MonoBehaviour
             Debug.Log("Now I don't");
             gazingPlayer = false;
         }
-    }
+    }*/
 }
