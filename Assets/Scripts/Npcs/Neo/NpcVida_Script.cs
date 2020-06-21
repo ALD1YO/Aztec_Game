@@ -27,12 +27,12 @@ public class NpcVida_Script : MonoBehaviour
     IEnumerator goUp()
     {
         yield return new WaitForSeconds(0.9f);
-        P_Singleton.instance.setCurrentEnemiesLessOne(2);
+        P_Singleton.instance.setCurrentEnemiesLessOne(3);
         Destroy(transform.parent.gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Hit")
+        if (other.gameObject.tag == "Hit" )
         {
             vida = vida - 20f;
             Debug.Log("Auch");

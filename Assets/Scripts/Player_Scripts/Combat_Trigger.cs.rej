@@ -1,0 +1,12 @@
+diff a/Assets/Scripts/Player_Scripts/Combat_Trigger.cs b/Assets/Scripts/Player_Scripts/Combat_Trigger.cs	(rejected hunks)
+@@ -64,10 +64,6 @@
+             if (punchTime >= 1.6f)
+             {
+                 combatPunching = false;
+-                combatPunch1 = false;
+-                combatPunch2 = false;
+-                combatPunch3 = false;
+-                hitbox.SetActive(false);
+                 punchTime = 0f;
+             }
+         }

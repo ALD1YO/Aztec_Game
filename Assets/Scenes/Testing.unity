@@ -2063,6 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1128699782}
+  iSeeYou: 0
 --- !u!1 &1847039432
 GameObject:
   m_ObjectHideFlags: 0

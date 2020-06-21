@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class NpcVision_Script : MonoBehaviour
 {
     public CanvasGroup target;
+    FollowPlayer FP;
 
     float alpha;
-    bool iSeeYou;
+    public bool iSeeYou;
 
     private void Start()
     {
+        FP = transform.parent.GetComponentInChildren<FollowPlayer>();
         iSeeYou = false;
     }
 
@@ -24,6 +26,7 @@ public class NpcVision_Script : MonoBehaviour
             alpha = -1;
 
         target.alpha = Mathf.Clamp01(target.alpha + alpha * Time.deltaTime);
+        FP.gazingPlayer = iSeeYou;
     }
 
     private void OnTriggerEnter(Collider other)
