@@ -6,16 +6,20 @@ public class ShapeShift : MonoBehaviour
 {
     public GameObject Mesh_Guerrero;
     public GameObject Mesh_Jaguar;
+    public ThirdPerson ThirdP_script;
     private bool coolDown = false;
 
     public Transform _camera;
     public float posicion_camara;
+
+    public bool EsJaguar=false;
 
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !coolDown)
         {
+            EsJaguar = !EsJaguar;
             Cambiar_Forma(Mesh_Guerrero, Mesh_Jaguar);
         }
         
@@ -29,8 +33,7 @@ public class ShapeShift : MonoBehaviour
             print("Cambiando forma a jaguar");
             Mesh_jaguar.SetActive(true);
             Mesh_guerrero.SetActive(false);
-            //_camera.transform.Translate(0, posicion_camara, 0);
-            //_camera.transform.localPosition = new Vector3(0,posicion_camara,0);
+            
 
         }
         else
@@ -53,4 +56,5 @@ public class ShapeShift : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         coolDown = false;
     }
+
 }

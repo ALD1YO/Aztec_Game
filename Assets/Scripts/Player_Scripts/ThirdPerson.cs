@@ -30,6 +30,12 @@ public class ThirdPerson : MonoBehaviour
     bool puedeCaminar;
     bool pausa;
 
+    public ShapeShift shapeShift;
+    public float WalkSpeed=3f;
+    public float RunSpeed = 10f;
+    public float ShapeShiftSpeed = 1f;
+    private bool EsJaguar = false; 
+
     //private ShapeShift shapeShift;
     //public GameObject ShapeShift_script;
     // Use this for initialization
@@ -43,7 +49,7 @@ public class ThirdPerson : MonoBehaviour
     void Start()
     {
         puedeCorrer = true;
-
+        EsJaguar = shapeShift.EsJaguar;
     }
 
     // Update is called once per frame
@@ -74,8 +80,17 @@ public class ThirdPerson : MonoBehaviour
         {
             if (energia > 0f)
             {
+                EsJaguar = shapeShift.EsJaguar;
+                if (EsJaguar)
+                {
+                    ShapeShiftSpeed = 1.8f;
+                }
+                else
+                {
+                    ShapeShiftSpeed = 1.0f;
+                }
                 puedeCorrer = true;
-                moveSpeed = 10f;
+                moveSpeed = RunSpeed*ShapeShiftSpeed;
                 energia -= .4f + Time.deltaTime;
                 if (energia <= 0)
                     energia = 0f;
@@ -88,7 +103,7 @@ public class ThirdPerson : MonoBehaviour
         }
         else
         {
-            moveSpeed = 3f;
+            moveSpeed = WalkSpeed;
             energia += .2f + Time.deltaTime;
             if (energia >= 100f)
                 energia = 100f;
