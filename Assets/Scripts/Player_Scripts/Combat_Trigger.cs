@@ -52,7 +52,7 @@ public class Combat_Trigger : MonoBehaviour
             if(currentEnemies>=6)
                 P_Singleton.instance.setCurrentEnemiesLessOne(2);
             else
-                P_Singleton.instance.setCurrentEnemiesLessOne(2);
+                P_Singleton.instance.setCurrentEnemiesLessOne(1);
 
             hitbox.SetActive(true);
             StartCoroutine(hitBoxOff());
