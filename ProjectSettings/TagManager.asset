@@ -7,6 +7,13 @@ TagManager:
   - Hit
   - Bullet
   - Bird
+  - EnemyD
+  - Canvas
+  - Top_place
+  - Right_place
+  - Bottom_place
+  - Left_place
+  - EnemyHit
   layers:
   - Default
   - TransparentFX
