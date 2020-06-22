@@ -20,6 +20,7 @@ public class FollowPlayer : MonoBehaviour
     public bool attack;
     float attackTime;
     bool combat;
+    bool canMove;
     bool der;
     bool izq;
     bool closeenough;
@@ -34,6 +35,7 @@ public class FollowPlayer : MonoBehaviour
     {
         hitBox.SetActive(false);
         combat = false;
+        canMove = true;
         directionchange = false;
         gazingPlayer = false;
     }
@@ -82,7 +84,7 @@ public class FollowPlayer : MonoBehaviour
             StartCoroutine(resetDirection());
             directionchange = true;
         }
-        if (closeenough)
+        if (closeenough && canMove)
         {
             if (der)
             {
@@ -93,8 +95,11 @@ public class FollowPlayer : MonoBehaviour
                 transform.parent.RotateAround(target.transform.position, Vector3.down, (speed * 12) * Time.deltaTime);
             }
 
-            if (attackTime >= 1.6f)
+            if (attackTime >= 3.6f)
             {
+                canMove = false;
+                izq = false;
+                der = false;
                 hitBox.SetActive(true);
                 StartCoroutine(hitBoxOff());
                 attack = true;
@@ -133,5 +138,7 @@ public class FollowPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         hitBox.SetActive(false);
+        yield return new WaitForSeconds(1.4f);
+        canMove = true;
     }
 }

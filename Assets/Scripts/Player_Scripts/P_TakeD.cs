@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class P_TakeD : MonoBehaviour
 {
-
-    public Renderer rend;
-
     bool vulnerable;
     float vida;
 
@@ -24,7 +21,7 @@ public class P_TakeD : MonoBehaviour
     }
     public void takeDamage(int damage)
     {
-        if (vulnerable == true)
+        if (vulnerable)
         {
             vida = vida - damage;
             StartCoroutine(Blink(.3f, .2f));
@@ -33,20 +30,23 @@ public class P_TakeD : MonoBehaviour
     }
     IEnumerator Blink(float duration, float blinkTime)
     {
-        if (vulnerable == true)
+        if (vulnerable)
         {
             P_Singleton.instance.setVida(vida);
             vulnerable = false;
             while (duration > 0f)
             {
                 duration -= Time.deltaTime;
-                rend.enabled = !rend.enabled;
                 yield return new WaitForSeconds(blinkTime);
             }
-            rend.enabled = true;
-            
             vulnerable = true;
         }
-        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EnemyHit")
+        {
+            takeDamage(15);
+        }
     }
 }
