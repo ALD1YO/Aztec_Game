@@ -58,7 +58,6 @@ public class ThirdPerson : MonoBehaviour
         pausa = G_Singleton.instance.pausa;
         if (pausa == false)
         {
-            zoomCamara();
             moverCamara();
             centraCamara();
             if (puedeCaminar)
@@ -146,15 +145,5 @@ public class ThirdPerson : MonoBehaviour
     {
         mouseX += Input.GetAxis("Mouse X");
         mouseY -= Input.GetAxis("Mouse Y");
-    }
-    void zoomCamara()
-    {
-        zoom += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-
-        if (zoom > zoomMin)
-            zoom = zoomMin;
-
-        if (zoom < zoomMax)
-            zoom = zoomMax;
     }
 }

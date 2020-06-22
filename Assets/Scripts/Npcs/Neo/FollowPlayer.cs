@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+    public Animator anim;
+
+    public GameObject hitBox;
+
+    int esteRandom;
+
     public float speed;
     public float stoppingDistance;
 
     public bool gazingPlayer;
     bool pause;
+
+    bool walk;
+    public bool attack;
+    float attackTime;
+    bool combat;
+    bool der;
+    bool izq;
+    bool closeenough;
+    bool directionchange;
 
     public GameObject target;
 
@@ -17,6 +32,9 @@ public class FollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hitBox.SetActive(false);
+        combat = false;
+        directionchange = false;
         gazingPlayer = false;
     }
 
@@ -26,7 +44,12 @@ public class FollowPlayer : MonoBehaviour
         pause = G_Singleton.instance.pausa;
 
         goToTarget();
-        
+        IA();
+        anim.SetBool("Walk", walk);
+        anim.SetBool("Combat", combat);
+        anim.SetBool("Walk_L", izq);
+        anim.SetBool("Walk_R", der);
+        anim.SetBool("Attack", attack);
     }
     void goToTarget()
     {
@@ -34,28 +57,81 @@ public class FollowPlayer : MonoBehaviour
 
         if (gazingPlayer == true)
         {
-            if (Vector3.Distance(transform.parent.position, target.transform.position) > stoppingDistance)
+            combat = true;
+            if (Vector3.Distance(transform.parent.position, target.transform.position) >= stoppingDistance)
             {
+                walk = true;
+                closeenough = false;
                 transform.parent.position = Vector3.MoveTowards(transform.parent.position, target.transform.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                walk = false;
+                closeenough = true;
             }
             transform.parent.LookAt(targetPosition);
         }
+        else
+            combat = false;
     }
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("I see you");
-            gazingPlayer = true;
-        }
 
-    }
-    private void OnTriggerExit(Collider other)
+    void IA()
     {
-        if (other.gameObject.tag == "Player")
+        if (directionchange == false)
         {
-            Debug.Log("Now I don't");
-            gazingPlayer = false;
+            StartCoroutine(resetDirection());
+            directionchange = true;
         }
-    }*/
+        if (closeenough)
+        {
+            if (der)
+            {
+                transform.parent.RotateAround(target.transform.position, Vector3.up, (speed * 12) * Time.deltaTime);
+            }
+            else if (izq)
+            {
+                transform.parent.RotateAround(target.transform.position, Vector3.down, (speed * 12) * Time.deltaTime);
+            }
+
+            if (attackTime >= 1.6f)
+            {
+                hitBox.SetActive(true);
+                StartCoroutine(hitBoxOff());
+                attack = true;
+                attackTime = 0f;
+            }
+            else
+            {
+                attack = false;
+                attackTime += .0025f + Time.deltaTime;
+            }
+        }
+    }
+
+    IEnumerator resetDirection()
+    {
+        yield return new WaitForSeconds(1.8f);
+        if (closeenough)
+        {
+            if (esteRandom >= 5)
+            {
+                izq = false;
+                der = true;
+            }
+            else
+            {
+                der = false;
+                izq = true;
+            }
+        }
+        yield return new WaitForSeconds(2f);
+        esteRandom = Random.Range(0, 10);
+        directionchange = false;
+    }
+
+    IEnumerator hitBoxOff()
+    {
+        yield return new WaitForSeconds(0.05f);
+        hitBox.SetActive(false);
+    }
 }
