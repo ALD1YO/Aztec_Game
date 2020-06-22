@@ -23,9 +23,10 @@ public class Player_Controller : MonoBehaviour
     public Slider sliderEnergia;
     public Slider sliderVida;
 
+    /*
     public Image EQIcon;
     public Image FBIcon;
-    public Image NullIcon;
+    public Image NullIcon;*/
 
     public bool No_Spell;
     public bool Fire_Spell;
@@ -40,9 +41,10 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         EQIcon.enabled = false;
         FBIcon.enabled = false;
-        NullIcon.enabled = true;
+        NullIcon.enabled = true;*/
 
         ataca = false;
         ataca2 = false;
@@ -89,7 +91,7 @@ public class Player_Controller : MonoBehaviour
 
         }
 
-        switch (currentSpellValue)
+        /*switch (currentSpellValue)
         {
             case 0:
                 NullIcon.enabled = true;
@@ -109,7 +111,7 @@ public class Player_Controller : MonoBehaviour
             default:
                 NullIcon.enabled = true;
                 break;
-        }
+        }*/
 
         spellLight.color = spellLightValue;
         P_Singleton.instance.setCurrentSpellValue(currentSpellValue);

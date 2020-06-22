@@ -69,10 +69,13 @@ public class Game_Controller : MonoBehaviour
         pause = !pause;
         G_Singleton.instance.setPausa(pause);
     }
-
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     IEnumerator goToMenu()
     {
         yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene("Menu");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene);
     }
 }
